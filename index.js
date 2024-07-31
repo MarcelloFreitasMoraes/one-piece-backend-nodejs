@@ -1,13 +1,9 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const cors = require('cors');
 
 // Importe os dados dos personagens
 const characters = require('./characters');
-
-// Configurar CORS
-app.use(cors());
 
 // Importe o Swagger
 const swaggerUi = require('swagger-ui-express');
