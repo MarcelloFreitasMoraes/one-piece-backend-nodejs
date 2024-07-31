@@ -1,16 +1,20 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const cors = require('cors');
 
 // Importe os dados dos personagens
-const characters = require("./characters");
+const characters = require('./characters');
+
+// Configurar CORS
+app.use(cors());
 
 // Importe o Swagger
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swaggerOptions');
 
 // Rota para exibir a documentação Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css' }));
 
 /**
  * @openapi
@@ -62,7 +66,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
  *                   items:
  *                     $ref: '#/components/schemas/Character'
  */
-app.get("/characters", (req, res) => {
+app.get('/characters', (req, res) => {
   let filteredCharacters = characters;
 
   // Filtra pelo nome
@@ -117,13 +121,13 @@ app.get("/characters", (req, res) => {
  *       404:
  *         description: Personagem não encontrado
  */
-app.get("/characters/:id", (req, res) => {
+app.get('/characters/:id', (req, res) => {
   const id = parseInt(req.params.id, 10);
   const character = characters.find((c) => c.id === id);
   if (character) {
     res.json(character);
   } else {
-    res.status(404).send("Personagem não encontrado");
+    res.status(404).send('Personagem não encontrado');
   }
 });
 
