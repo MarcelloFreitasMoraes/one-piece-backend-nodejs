@@ -21,7 +21,7 @@ Para rodar este projeto localmente, siga os passos abaixo:
 git clone https://github.com/seu-usuario/seu-repositorio.git
 
 # Navegue até o diretório do projeto
-cd seu-repositorio
+cd one-piece-backend-nodejs
 
 # Instale as dependências
 npm install
