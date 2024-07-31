@@ -9,12 +9,12 @@ const options = {
       version: '1.0.0',
       description: 'Documentação da API de personagens com Swagger',
     },
-    servers: [
-      {
-        url: 'https://one-piece-backend-nodejs.vercel.app/', // Substitua pelo URL do seu projeto Vercel
-        description: 'Servidor principal',
-      },
-    ],
+    // servers: [
+    //   {
+    //     url: 'https://one-piece-backend-nodejs.vercel.app/', // Substitua pelo URL do seu projeto Vercel
+    //     description: 'Servidor principal',
+    //   },
+    // ],
   },
   apis: ['./index.js'], // Ou o caminho para os arquivos onde você tem as anotações Swagger
 };

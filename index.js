@@ -1,19 +1,20 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const cors = require('cors');
 
 // Importe os dados dos personagens
 const characters = require('./characters');
+
+// Configurar CORS
+app.use(cors());
 
 // Importe o Swagger
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swaggerOptions');
 
 // Rota para exibir a documentação Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-app.get('/swagger.json', (req, res) => {
-  res.json(swaggerSpec);
-});
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css' }));
 
 /**
  * @openapi
