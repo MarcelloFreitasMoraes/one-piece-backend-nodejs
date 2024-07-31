@@ -5,9 +5,9 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'API de Personagens',
+      title: 'One Piece API de Personagens',
       version: '1.0.0',
-      description: 'Documentação da API de personagens com Swagger',
+      description: 'Documentação da API de personagens com Swagger de One Piece',
     },
     // servers: [
     //   {
